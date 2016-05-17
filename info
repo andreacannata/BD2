@@ -1,0 +1,15 @@
+Info varie relative al progetto:
+
+-in alcuni file spedizione ho eliminato l'intestazione manualmente.
+
+-tutto dovrebbe essere coerente alle specifiche, salvo la trasformazione esami.ktr che prevede un workaround. Nel popolamento della tabella 'corso',
+c'era un valore che mancava. Questo aveva ripercussioni sul popolamento della tabella 'esami' a causa della violazione del vincolo di non nullità di una 
+delle chiavi(k_corso), che invece mancava a causa di quella entry non caricata. Avendo provato a soluzionare la cosa e non essendoci riuscito, pensando che
+l'errore riguardava un solo campo di un'unica entry, ho scelto di applicare il passo 'if null' da spoon, impostando il valore mancante a costante.
+Su migliaia di record, un unico workaround che devia dai binari del progetto mi sembrava accettabile. Probabilmente, se non l'avessi scritto, nessuno se ne
+sarebbe accorto, ma mi sembrava corretto farlo presente.
+
+-nella trasformazione della dimensione corso, il lookup per il nome del corso viene fatto tramite il file ad.csv, ovverosia l'ad.xslx esportato in csv.
+Diversamente, non funzionava(riferimenti sul forum del corso: ho aperto una discussione a riguardo).
+
+-lo script data.sql serve a popolare la dimensione temporale chiamata data.
